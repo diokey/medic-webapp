@@ -149,7 +149,25 @@ http://localhost:5988/medic/_design/medic/_rewrite/
 ```
 
 
-### Loading Data
+## Tests
+
+To run the basic linting and unit tests, run:
+
+```
+grunt precommit
+```
+
+Some tests are run in browser, you can run them manually if you browse to `/test`
+after a push.  To run them from commandline you will need to install
+[phantomjs](http://phantomjs.org/).
+
+```
+npm install phantomjs -g
+grunt test
+```
+
+
+## Loading Data
 
 Loading your form definitions in the settings interface is supported but you can
 also do that from command line.
@@ -209,16 +227,6 @@ Market](https://staging.dev.medicmobile.org/markets-alpha/) run:
 kanso push https://staging.dev.medicmobile.org/markets-alpha/upload
 ```
 
-## Tests
-
-Tests are run in browser, you can run them manually if you browse to `/test`
-after a push.  To run them from commandline you will need to install
-[phantomjs](http://phantomjs.org/).
-
-```
-npm install phantomjs -g
-grunt test
-```
 
 ## Help
 

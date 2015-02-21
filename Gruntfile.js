@@ -31,14 +31,6 @@ module.exports = function(grunt) {
           from: /clickDate: function \(e\) \{/g,
           to: 'clickDate: function (e) {\n\n// MONKEY PATCH BY GRUNT: Needed for the mobile version.\nthis.element.trigger(\'mm.dateSelected.daterangepicker\', this);\n'
         }]
-      },
-      monkeypatchtour: {
-        src: ['bower_components/bootstrap-tour/build/js/bootstrap-tour.js'],
-        overwrite: true,
-        replacements: [{
-          from: /        selector: step.element/g,
-          to: '        // selector: step.element - MONKEY PATCH BY GRUNT: Patch to get bootstrap tour to work with latest bootstrap: https://github.com/sorich87/bootstrap-tour/issues/356'
-        }]
       }
     },
     browserify: {
@@ -48,12 +40,15 @@ module.exports = function(grunt) {
           // optional package
           .ignore('./flashmessages')
           // map the kanso packages manually
-          .plugin(remapify, getBrowserifyMappings());
+          .plugin(remapify, browserifyMappings);
         }
       },
       dist: {
-        files: {
-          'static/dist/inbox.js': ['static/js/app.js']
+        src: ['static/js/app.js'],
+        dest: 'static/dist/inbox.js',
+        options: {
+          detectGlobals: false,
+          external: ['moment', 'underscore']
         }
       }
     },
@@ -230,39 +225,39 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-npm-install');
   grunt.loadNpmTasks('grunt-text-replace');
 
   grunt.task.run('notify_hooks');
 
   // Default tasks
-  grunt.registerTask('mmjs', [
+  grunt.registerTask('mmjs', 'Build the JS resources', [
     'jshint',
     'copy:settings',
     'browserify',
     'concat:js'
   ]);
 
-  grunt.registerTask('mmcss', [
+  grunt.registerTask('mmcss', 'Build the CSS resources', [
     'less',
     'autoprefixer'
   ]);
 
-  grunt.registerTask('mmbower', [
+  grunt.registerTask('mmbower', 'Install, concat, and patch bower components', [
     'bower:install',
     'bower_concat',
     'replace:monkeypatchdate',
-    'replace:monkeypatchtour',
     'copy:inbox',
     'copy:admin'
   ]);
 
-  grunt.registerTask('default', [
+  grunt.registerTask('default', 'Build the static resources', [
     'mmbower',
     'mmcss',
     'mmjs'
   ]);
 
-  grunt.registerTask('ci', [
+  grunt.registerTask('ci', 'Build, minify, and test for CI', [
     'default',
     'uglify',
     'cssmin',
@@ -272,113 +267,103 @@ module.exports = function(grunt) {
     'exec:phantom'
   ]);
 
-  grunt.registerTask('dev', [
+  grunt.registerTask('dev', 'Build and deploy for dev', [
+    'npm-install',
     'default',
     'exec:deploy',
     'notify:deployed'
   ]);
 
-  grunt.registerTask('precommit', [
+  grunt.registerTask('precommit', 'Lint and unit test', [
     'jshint',
     'nodeunit',
     'karma:unit'
   ]);
 
-  grunt.registerTask('test', [
-    'nodeunit',
-    'karma:unit',
+  grunt.registerTask('test', 'Lint, unit, and integration test', [
+    'precommit',
     'exec:phantom'
   ]);
 
 
-  var getBrowserifyMappings = function() {
-    return [
-      // default settings file
-      {
-        cwd: 'static/dist',
-        src: './root.js',
-        expose: 'settings'
-      },
-      // modules in bower and kanso
-      {
-        cwd: 'bower_components/underscore',
-        src: './underscore.js'
-      },
-      {
-        cwd: 'bower_components/moment',
-        src: './moment.js'
-      },
-      {
-        cwd: 'bower_components/moment/min/',
-        src: './locales.js',
-        expose: 'moment'
-      },
-      {
-        cwd: 'bower_components/async/lib',
-        src: './async.js'
-      },
-      // kanso packages required for inbox
-      {
-        cwd: 'packages/db',
-        src: './db.js'
-      },
-      {
-        cwd: 'packages/kujua-sms/views/lib',
-        src: './*.js',
-        expose: 'views/lib'
-      },
-      {
-        cwd: 'packages/kujua-sms/kujua-sms',
-        src: './utils.js',
-        expose: 'kujua-sms'
-      },
-      {
-        cwd: 'packages/kujua-utils',
-        src: './kujua-utils.js'
-      },
-      {
-        cwd: 'packages/underscore-string',
-        src: './underscore-string.js'
-      },
-      {
-        cwd: 'packages/session',
-        src: './session.js'
-      },
-      {
-        cwd: 'packages/duality/duality',
-        src: './utils.js',
-        expose: 'duality'
-      },
-      {
-        cwd: 'packages/users',
-        src: './users.js'
-      },
-      {
-        cwd: 'packages/cookies',
-        src: './cookies.js'
-      },
-      {
-        cwd: 'packages/sha1',
-        src: './sha1.js'
-      },
-      {
-        cwd: 'packages/dust',
-        src: './dust.js'
-      },
-      {
-        cwd: 'packages/locale',
-        src: './locale.js'
-      },
-      {
-        cwd: 'packages/libphonenumber/libphonenumber',
-        src: './*.js',
-        expose: 'libphonenumber'
-      },
-      {
-        cwd: 'packages/feedback',
-        src: './feedback.js'
-      }
-    ];
-  };
+  var browserifyMappings = [
+    // default settings file
+    {
+      cwd: 'static/dist',
+      src: './root.js',
+      expose: 'settings'
+    },
+    // modules in bower and kanso
+    {
+      cwd: 'bower_components/underscore',
+      src: './underscore.js'
+    },
+    {
+      cwd: 'bower_components/moment',
+      src: './moment.js'
+    },
+    {
+      cwd: 'bower_components/moment/min/',
+      src: './locales.js',
+      expose: 'moment'
+    },
+    {
+      cwd: 'bower_components/async/lib',
+      src: './async.js'
+    },
+    // kanso packages required for inbox
+    {
+      cwd: 'packages/db',
+      src: './db.js'
+    },
+    {
+      cwd: 'packages/kujua-sms/views/lib',
+      src: './*.js',
+      expose: 'views/lib'
+    },
+    {
+      cwd: 'packages/kujua-sms/kujua-sms',
+      src: './utils.js',
+      expose: 'kujua-sms'
+    },
+    {
+      cwd: 'packages/kujua-utils',
+      src: './kujua-utils.js'
+    },
+    {
+      cwd: 'packages/session',
+      src: './session.js'
+    },
+    {
+      cwd: 'packages/duality/duality',
+      src: './utils.js',
+      expose: 'duality'
+    },
+    {
+      cwd: 'packages/users',
+      src: './users.js'
+    },
+    {
+      cwd: 'packages/cookies',
+      src: './cookies.js'
+    },
+    {
+      cwd: 'packages/sha1',
+      src: './sha1.js'
+    },
+    {
+      cwd: 'packages/dust',
+      src: './dust.js'
+    },
+    {
+      cwd: 'packages/libphonenumber/libphonenumber',
+      src: './*.js',
+      expose: 'libphonenumber'
+    },
+    {
+      cwd: 'packages/feedback',
+      src: './feedback.js'
+    }
+  ];
 
 };

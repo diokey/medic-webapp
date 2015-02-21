@@ -9,6 +9,7 @@ module.exports = function(config) {
     autoWatch: true,
     singleRun: false,
     colors: true,
+    browserNoActivityTimeout: 60000,
 
     preprocessors: {
       'templates/partials/*.html': ['ng-html2js']

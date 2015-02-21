@@ -17,11 +17,11 @@
         <i class="fa fa-clock-o"></i>
         {{'Schedules' | translate}}
       </a>
-      <a href="export" ng-show="permissions.admin || permissions.nationalAdmin">
+      <a ui-sref="configuration.export" ng-show="permissions.admin">
         <i class="fa fa-arrow-circle-o-down"></i>
         {{'Export' | translate}}
       </a>
-      <a href="users" ng-show="permissions.admin">
+      <a ui-sref="configuration.users" ng-show="permissions.admin">
         <i class="fa fa-user"></i>
         {{'Users' | translate}}
       </a>

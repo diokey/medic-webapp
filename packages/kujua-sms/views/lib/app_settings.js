@@ -2390,6 +2390,16 @@ module.exports = {
           ]
       },
       {
+          "key": "confirm.delete.user",
+          "default": "Are you sure you want to delete this user? This operation cannot be undone.",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Are you sure you want to delete this user? This operation cannot be undone."
+              }
+          ]
+      },
+      {
           "key": "Full Name",
           "default": "Full name",
           "translations": [
@@ -2421,11 +2431,11 @@ module.exports = {
       },
       {
           "key": "Phone Number",
-          "default": "Phone number",
+          "default": "Phone",
           "translations": [
               {
                   "locale": "en",
-                  "content": "Phone number"
+                  "content": "Phone"
               },
               {
                   "locale": "fr",
@@ -4816,6 +4826,26 @@ module.exports = {
           ]
       },
       {
+          "key": "usertype.admin",
+          "default": "Administrator",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Administrator"
+              }
+          ]
+      },
+      {
+          "key": "usertype.unknown",
+          "default": "Unknown",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Unknown"
+              }
+          ]
+      },
+      {
           "key": "Select a type",
           "default": "Select a type",
           "translations": [
@@ -4937,11 +4967,11 @@ module.exports = {
       },
       {
           "key": "help.messages.description",
-          "default": "<h4>Configuration</h4> <p>Outgoing messages can be configured to include data from the document by wrapping the field name in braces, eg:</p> <pre>Thank you {{contact.name}}, {{patient_name}} has been registered.</pre> <p><a href=\"http://mustache.github.io/mustache.5.html\" target=\"_blank\">More information</a>.</p> <h4>Available Fields</h4> <dl class=\"horizontal\"> <dt><span class=\"pre\">contact</span></dt> <dd>The contact at the clinic. Use contact.name or contact.phone.</dd> <dt><span class=\"pre\">clinic</span></dt> <dd>The clinic</dd> <dt><span class=\"pre\">parent</span></dt> <dd>The parent facility of the clinic</dd> <dt><span class=\"pre\">grandparent</span></dt> <dd>The grandparent facility of the clinic</dd> <dt><span class=\"pre\">health_center</span></dt> <dd>The health center</dd> <dt><span class=\"pre\">district</span></dt> <dd>The district</dd> <dt></dt> <dd>All other fields on the document are included</dd> </dl> <h4>Formatters</h4> <p>To format dates using the configured date format:</p> <pre>Expected due date is {{#date}}{{expected_date}}{{/date}}</pre> <p>Or the configured datetime format:</p> <pre>Message received at {{#datetime}}{{reported_date}}{{/datetime}}</pre>",
+          "default": "<h4>Configuration</h4> <p>Outgoing messages can be configured to include data from the document by wrapping the field name in braces, eg:</p> <pre>Thank you \{\{contact.name\}\}, \{\{patient_name\}\} has been registered.</pre> <p><a href=\"http://mustache.github.io/mustache.5.html\" target=\"_blank\">More information</a>.</p> <h4>Available Fields</h4> <dl class=\"horizontal\"> <dt><span class=\"pre\">contact</span></dt> <dd>The contact at the clinic. Use contact.name or contact.phone.</dd> <dt><span class=\"pre\">clinic</span></dt> <dd>The clinic</dd> <dt><span class=\"pre\">parent</span></dt> <dd>The parent facility of the clinic</dd> <dt><span class=\"pre\">grandparent</span></dt> <dd>The grandparent facility of the clinic</dd> <dt><span class=\"pre\">health_center</span></dt> <dd>The health center</dd> <dt><span class=\"pre\">district</span></dt> <dd>The district</dd> <dt></dt> <dd>All other fields on the document are included</dd> </dl> <h4>Formatters</h4> <p>To format dates using the configured date format:</p> <pre>Expected due date is \{\{#date\}\}\{\{expected_date\}\}\{\{/date\}\}</pre> <p>Or the configured datetime format:</p> <pre>Message received at \{\{#datetime\}\}\{\{reported_date\}\}\{\{/datetime\}\}</pre>",
           "translations": [
               {
                   "locale": "en",
-                  "content": "<h4>Configuration</h4> <p>Outgoing messages can be configured to include data from the document by wrapping the field name in braces, eg:</p> <pre>Thank you {{contact.name}}, {{patient_name}} has been registered.</pre> <p><a href=\"http://mustache.github.io/mustache.5.html\" target=\"_blank\">More information</a>.</p> <h4>Available Fields</h4> <dl class=\"horizontal\"> <dt><span class=\"pre\">contact</span></dt> <dd>The contact at the clinic. Use contact.name or contact.phone.</dd> <dt><span class=\"pre\">clinic</span></dt> <dd>The clinic</dd> <dt><span class=\"pre\">parent</span></dt> <dd>The parent facility of the clinic</dd> <dt><span class=\"pre\">grandparent</span></dt> <dd>The grandparent facility of the clinic</dd> <dt><span class=\"pre\">health_center</span></dt> <dd>The health center</dd> <dt><span class=\"pre\">district</span></dt> <dd>The district</dd> <dt></dt> <dd>All other fields on the document are included</dd> </dl> <h4>Formatters</h4> <p>To format dates using the configured date format:</p> <pre>Expected due date is {{#date}}{{expected_date}}{{/date}}</pre> <p>Or the configured datetime format:</p> <pre>Message received at {{#datetime}}{{reported_date}}{{/datetime}}</pre>"
+                  "content": "<h4>Configuration</h4> <p>Outgoing messages can be configured to include data from the document by wrapping the field name in braces, eg:</p> <pre>Thank you \{\{contact.name\}\}, \{\{patient_name\}\} has been registered.</pre> <p><a href=\"http://mustache.github.io/mustache.5.html\" target=\"_blank\">More information</a>.</p> <h4>Available Fields</h4> <dl class=\"horizontal\"> <dt><span class=\"pre\">contact</span></dt> <dd>The contact at the clinic. Use contact.name or contact.phone.</dd> <dt><span class=\"pre\">clinic</span></dt> <dd>The clinic</dd> <dt><span class=\"pre\">parent</span></dt> <dd>The parent facility of the clinic</dd> <dt><span class=\"pre\">grandparent</span></dt> <dd>The grandparent facility of the clinic</dd> <dt><span class=\"pre\">health_center</span></dt> <dd>The health center</dd> <dt><span class=\"pre\">district</span></dt> <dd>The district</dd> <dt></dt> <dd>All other fields on the document are included</dd> </dl> <h4>Formatters</h4> <p>To format dates using the configured date format:</p> <pre>Expected due date is \{\{#date\}\}\{\{expected_date\}\}\{\{/date\}\}</pre> <p>Or the configured datetime format:</p> <pre>Message received at \{\{#datetime\}\}\{\{reported_date\}\}\{\{/datetime\}\}</pre>"
               }
           ]
       },
@@ -4957,21 +4987,21 @@ module.exports = {
       },
       {
           "key": "help.export.description",
-          "default": "<h4>Integration</h4> <p>You can export data by making requests to specific URLs.</p> <h5>Forms</h5> <p>Export a file containing all submitted forms.</p> <pre>/export/forms/&lt;formcode&gt;</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> <dt>columns</dt> <dd> <p>An orderered array of columns to export, eg:</p> <pre>[\"reported_date\",\"from\",\"related_entities.clinic.name\"]</pre> <p>Defaults to:</p> <pre>[\"_id\",\"patient_id\",\"reported_date\", \"from\", \"related_entities.clinic.contact.name\", \"related_entities.clinic.name\", \"related_entities.clinic.parent.contact.name\", \"related_entities.clinic.parent.name\", \"related_entities.clinic.parent.parent.name\"]</pre> <p>Available columns:</p> <ul> <li>_id</li> <li>patient_id</li> <li>reported_date</li> <li>from</li> <li>related_entities.clinic.name</li> <li>related_entities.clinic.external_id</li> <li>related_entities.clinic.contact.name</li> <li>related_entities.clinic.parent.name</li> <li>related_entities.clinic.parent.external_id</li> <li>related_entities.clinic.parent.contact.name</li> <li>related_entities.clinic.parent.parent.name</li> <li>related_entities.clinic.parent.parent.external_id</li> </ul> <p>All form fields will be included as columns at the end regardless of the value for this parameter.</p> </dd> </dl> <h5>Messages</h5> <p>Export a file containing all messages</p> <pre>/export/messages</pre> <p>Examples:</p> <p>Return only rows that are scheduled to be sent in the next ten days.</p> <pre>/export/messages?filter_state=scheduled&amp;filter_state_to=10</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> <dt>columns</dt> <dd> <p>An orderered array of columns to export, eg:</p> <pre>[\"reported_date\",\"from\",\"related_entities.clinic.name\"]</pre> <p>Defaults to:</p> <pre>[\"_id\",\"patient_id\",\"reported_date\", \"from\", \"related_entities.clinic.contact.name\", \"related_entities.clinic.name\", \"related_entities.clinic.parent.contact.name\", \"related_entities.clinic.parent.name\", \"related_entities.clinic.parent.parent.name\",\"task.type\",\"task.state\",\"received\",\"scheduled\",\"pending\",\"sent\",\"cleared\",\"muted\"]</pre> <p>Available columns:</p> <ul> <li>_id</li> <li>patient_id</li> <li>reported_date</li> <li>from</li> <li>related_entities.clinic.name</li> <li>related_entities.clinic.external_id</li> <li>related_entities.clinic.contact.name</li> <li>related_entities.clinic.parent.name</li> <li>related_entities.clinic.parent.external_id</li> <li>related_entities.clinic.parent.contact.name</li> <li>related_entities.clinic.parent.parent.name</li> <li>related_entities.clinic.parent.parent.external_id</li> <li>task.type</li> <li>task.state</li> <li>received</li> <li>scheduled</li> <li>pending</li> <li>sent</li> <li>cleared</li> <li>muted</li> </ul> <p>Regardless of the value for this parameter, for each message the following four columns will be appended</p> <ul> <li>Message UUID</li> <li>Sent By</li> <li>To phone</li> <li>Message Body</li> </ul> </dd> <dt>filter_state</dt> <dd>Used in conjunction with the parameters below to only return messages that were in a given state. Possible values are 'received', 'scheduled', 'pending', 'sent', 'cleared', or 'muted'.</dd> <dt>filter_state_from</dt> <dd>The number of days from now to use as a lower bound on the date that the message is in the given state. Defaults to no lower bound. Ignored if filter_state is not provided.</dd> <dt>filter_state_to</dt> <dd>The number of days from now to use as an upper bound on the date that the message is in the given state. Defaults to no upper bound. Ignored if filter_state is not provided.</dd> </dl> <h5>Audit Log</h5> <p>Export a file containing the audit log.</p> <pre>/export/audit</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> </dl>",
+          "default": "<p>You can export data by making requests to specific URLs.</p> <h4>Forms</h4> <p>Export a file containing all submitted forms.</p> <pre>/api/v1/export/forms/{formcode}</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> <dt>columns</dt> <dd> <p>An orderered array of columns to export, eg:</p> <pre>[\"reported_date\",\"from\",\"related_entities.clinic.name\"]</pre> <p>Defaults to:</p> <pre>[\"_id\",\"patient_id\",\"reported_date\", \"from\", \"related_entities.clinic.contact.name\", \"related_entities.clinic.name\", \"related_entities.clinic.parent.contact.name\", \"related_entities.clinic.parent.name\", \"related_entities.clinic.parent.parent.name\"]</pre> <p>Available columns:</p> <ul> <li>_id</li> <li>patient_id</li> <li>reported_date</li> <li>from</li> <li>related_entities.clinic.name</li> <li>related_entities.clinic.external_id</li> <li>related_entities.clinic.contact.name</li> <li>related_entities.clinic.parent.name</li> <li>related_entities.clinic.parent.external_id</li> <li>related_entities.clinic.parent.contact.name</li> <li>related_entities.clinic.parent.parent.name</li> <li>related_entities.clinic.parent.parent.external_id</li> </ul> <p>All form fields will be included as columns at the end regardless of the value for this parameter.</p> </dd> </dl> <h4>Messages</h4> <p>Export a file containing all messages</p> <pre>/api/v1/export/messages</pre> <p>Examples:</p> <p>Return only rows that are scheduled to be sent in the next ten days.</p> <pre>/export/messages?filter_state=scheduled&amp;filter_state_to=10</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> <dt>columns</dt> <dd> <p>An orderered array of columns to export, eg:</p> <pre>[\"reported_date\",\"from\",\"related_entities.clinic.name\"]</pre> <p>Defaults to:</p> <pre>[\"_id\",\"patient_id\",\"reported_date\", \"from\", \"related_entities.clinic.contact.name\", \"related_entities.clinic.name\", \"related_entities.clinic.parent.contact.name\", \"related_entities.clinic.parent.name\", \"related_entities.clinic.parent.parent.name\",\"task.type\",\"task.state\",\"received\",\"scheduled\",\"pending\",\"sent\",\"cleared\",\"muted\"]</pre> <p>Available columns:</p> <ul> <li>_id</li> <li>patient_id</li> <li>reported_date</li> <li>from</li> <li>related_entities.clinic.name</li> <li>related_entities.clinic.external_id</li> <li>related_entities.clinic.contact.name</li> <li>related_entities.clinic.parent.name</li> <li>related_entities.clinic.parent.external_id</li> <li>related_entities.clinic.parent.contact.name</li> <li>related_entities.clinic.parent.parent.name</li> <li>related_entities.clinic.parent.parent.external_id</li> <li>task.type</li> <li>task.state</li> <li>received</li> <li>scheduled</li> <li>pending</li> <li>sent</li> <li>cleared</li> <li>muted</li> </ul> <p>Regardless of the value for this parameter, for each message the following four columns will be appended</p> <ul> <li>Message UUID</li> <li>Sent By</li> <li>To phone</li> <li>Message Body</li> </ul> </dd> <dt>filter_state</dt> <dd>Used in conjunction with the parameters below to only return messages that were in a given state. Possible values are 'received', 'scheduled', 'pending', 'sent', 'cleared', or 'muted'.</dd> <dt>filter_state_from</dt> <dd>The number of days from now to use as a lower bound on the date that the message is in the given state. Defaults to no lower bound. Ignored if filter_state is not provided.</dd> <dt>filter_state_to</dt> <dd>The number of days from now to use as an upper bound on the date that the message is in the given state. Defaults to no upper bound. Ignored if filter_state is not provided.</dd> </dl> <h4>Audit Log</h4> <p>Export a file containing the audit log.</p> <pre>/api/v1/export/audit</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> </dl> <h4>User Feedback</h4> <p>Export a file containing the user feedback.</p> <pre>/api/v1/export/feedback</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> </dl>",
           "translations": [
               {
                   "locale": "en",
-                  "content": "<h4>Integration</h4> <p>You can export data by making requests to specific URLs.</p> <h5>Forms</h5> <p>Export a file containing all submitted forms.</p> <pre>/export/forms/&lt;formcode&gt;</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> <dt>columns</dt> <dd> <p>An orderered array of columns to export, eg:</p> <pre>[\"reported_date\",\"from\",\"related_entities.clinic.name\"]</pre> <p>Defaults to:</p> <pre>[\"_id\",\"patient_id\",\"reported_date\", \"from\", \"related_entities.clinic.contact.name\", \"related_entities.clinic.name\", \"related_entities.clinic.parent.contact.name\", \"related_entities.clinic.parent.name\", \"related_entities.clinic.parent.parent.name\"]</pre> <p>Available columns:</p> <ul> <li>_id</li> <li>patient_id</li> <li>reported_date</li> <li>from</li> <li>related_entities.clinic.name</li> <li>related_entities.clinic.external_id</li> <li>related_entities.clinic.contact.name</li> <li>related_entities.clinic.parent.name</li> <li>related_entities.clinic.parent.external_id</li> <li>related_entities.clinic.parent.contact.name</li> <li>related_entities.clinic.parent.parent.name</li> <li>related_entities.clinic.parent.parent.external_id</li> </ul> <p>All form fields will be included as columns at the end regardless of the value for this parameter.</p> </dd> </dl> <h5>Messages</h5> <p>Export a file containing all messages</p> <pre>/export/messages</pre> <p>Examples:</p> <p>Return only rows that are scheduled to be sent in the next ten days.</p> <pre>/export/messages?filter_state=scheduled&amp;filter_state_to=10</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> <dt>columns</dt> <dd> <p>An orderered array of columns to export, eg:</p> <pre>[\"reported_date\",\"from\",\"related_entities.clinic.name\"]</pre> <p>Defaults to:</p> <pre>[\"_id\",\"patient_id\",\"reported_date\", \"from\", \"related_entities.clinic.contact.name\", \"related_entities.clinic.name\", \"related_entities.clinic.parent.contact.name\", \"related_entities.clinic.parent.name\", \"related_entities.clinic.parent.parent.name\",\"task.type\",\"task.state\",\"received\",\"scheduled\",\"pending\",\"sent\",\"cleared\",\"muted\"]</pre> <p>Available columns:</p> <ul> <li>_id</li> <li>patient_id</li> <li>reported_date</li> <li>from</li> <li>related_entities.clinic.name</li> <li>related_entities.clinic.external_id</li> <li>related_entities.clinic.contact.name</li> <li>related_entities.clinic.parent.name</li> <li>related_entities.clinic.parent.external_id</li> <li>related_entities.clinic.parent.contact.name</li> <li>related_entities.clinic.parent.parent.name</li> <li>related_entities.clinic.parent.parent.external_id</li> <li>task.type</li> <li>task.state</li> <li>received</li> <li>scheduled</li> <li>pending</li> <li>sent</li> <li>cleared</li> <li>muted</li> </ul> <p>Regardless of the value for this parameter, for each message the following four columns will be appended</p> <ul> <li>Message UUID</li> <li>Sent By</li> <li>To phone</li> <li>Message Body</li> </ul> </dd> <dt>filter_state</dt> <dd>Used in conjunction with the parameters below to only return messages that were in a given state. Possible values are 'received', 'scheduled', 'pending', 'sent', 'cleared', or 'muted'.</dd> <dt>filter_state_from</dt> <dd>The number of days from now to use as a lower bound on the date that the message is in the given state. Defaults to no lower bound. Ignored if filter_state is not provided.</dd> <dt>filter_state_to</dt> <dd>The number of days from now to use as an upper bound on the date that the message is in the given state. Defaults to no upper bound. Ignored if filter_state is not provided.</dd> </dl> <h5>Audit Log</h5> <p>Export a file containing the audit log.</p> <pre>/export/audit</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> </dl>"
+                  "content": "<p>You can export data by making requests to specific URLs.</p> <h4>Forms</h4> <p>Export a file containing all submitted forms.</p> <pre>/api/v1/export/forms/{formcode}</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> <dt>columns</dt> <dd> <p>An orderered array of columns to export, eg:</p> <pre>[\"reported_date\",\"from\",\"related_entities.clinic.name\"]</pre> <p>Defaults to:</p> <pre>[\"_id\",\"patient_id\",\"reported_date\", \"from\", \"related_entities.clinic.contact.name\", \"related_entities.clinic.name\", \"related_entities.clinic.parent.contact.name\", \"related_entities.clinic.parent.name\", \"related_entities.clinic.parent.parent.name\"]</pre> <p>Available columns:</p> <ul> <li>_id</li> <li>patient_id</li> <li>reported_date</li> <li>from</li> <li>related_entities.clinic.name</li> <li>related_entities.clinic.external_id</li> <li>related_entities.clinic.contact.name</li> <li>related_entities.clinic.parent.name</li> <li>related_entities.clinic.parent.external_id</li> <li>related_entities.clinic.parent.contact.name</li> <li>related_entities.clinic.parent.parent.name</li> <li>related_entities.clinic.parent.parent.external_id</li> </ul> <p>All form fields will be included as columns at the end regardless of the value for this parameter.</p> </dd> </dl> <h4>Messages</h4> <p>Export a file containing all messages</p> <pre>/api/v1/export/messages</pre> <p>Examples:</p> <p>Return only rows that are scheduled to be sent in the next ten days.</p> <pre>/export/messages?filter_state=scheduled&amp;filter_state_to=10</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> <dt>columns</dt> <dd> <p>An orderered array of columns to export, eg:</p> <pre>[\"reported_date\",\"from\",\"related_entities.clinic.name\"]</pre> <p>Defaults to:</p> <pre>[\"_id\",\"patient_id\",\"reported_date\", \"from\", \"related_entities.clinic.contact.name\", \"related_entities.clinic.name\", \"related_entities.clinic.parent.contact.name\", \"related_entities.clinic.parent.name\", \"related_entities.clinic.parent.parent.name\",\"task.type\",\"task.state\",\"received\",\"scheduled\",\"pending\",\"sent\",\"cleared\",\"muted\"]</pre> <p>Available columns:</p> <ul> <li>_id</li> <li>patient_id</li> <li>reported_date</li> <li>from</li> <li>related_entities.clinic.name</li> <li>related_entities.clinic.external_id</li> <li>related_entities.clinic.contact.name</li> <li>related_entities.clinic.parent.name</li> <li>related_entities.clinic.parent.external_id</li> <li>related_entities.clinic.parent.contact.name</li> <li>related_entities.clinic.parent.parent.name</li> <li>related_entities.clinic.parent.parent.external_id</li> <li>task.type</li> <li>task.state</li> <li>received</li> <li>scheduled</li> <li>pending</li> <li>sent</li> <li>cleared</li> <li>muted</li> </ul> <p>Regardless of the value for this parameter, for each message the following four columns will be appended</p> <ul> <li>Message UUID</li> <li>Sent By</li> <li>To phone</li> <li>Message Body</li> </ul> </dd> <dt>filter_state</dt> <dd>Used in conjunction with the parameters below to only return messages that were in a given state. Possible values are 'received', 'scheduled', 'pending', 'sent', 'cleared', or 'muted'.</dd> <dt>filter_state_from</dt> <dd>The number of days from now to use as a lower bound on the date that the message is in the given state. Defaults to no lower bound. Ignored if filter_state is not provided.</dd> <dt>filter_state_to</dt> <dd>The number of days from now to use as an upper bound on the date that the message is in the given state. Defaults to no upper bound. Ignored if filter_state is not provided.</dd> </dl> <h4>Audit Log</h4> <p>Export a file containing the audit log.</p> <pre>/api/v1/export/audit</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> </dl> <h4>User Feedback</h4> <p>Export a file containing the user feedback.</p> <pre>/api/v1/export/feedback</pre> <p>Parameters:</p> <dl class=\"horizontal\"> <dt>format</dt> <dd>The format of the returned file, either 'csv' or 'xml'. Defaults to 'csv'.</dd> <dt>locale</dt> <dd>Locale for translatable data. Defaults to 'en'.</dd> <dt>tz</dt> <dd>The timezone to show date values in, as an offset in minutes from GMT, for example '-120'.</dd> <dt>skip_header_row</dt> <dd>'true' to omit the column headings. Defaults to 'false'.</dd> </dl>"
               }
           ]
       },
       {
           "key": "Phone number example",
-          "default": "Phone number, eg: +225558881111",
+          "default": "Configured default country code will be prepended if necessary, eg: 0275551234, or +64275551234",
           "translations": [
               {
                   "locale": "en",
-                  "content": "Phone number, eg: +225558881111"
+                  "content": "Configured default country code will be prepended if necessary, eg: 0275551234, or +64275551234"
               }
           ]
       },
@@ -5382,6 +5412,136 @@ module.exports = {
               {
                   "locale": "en",
                   "content": "{{missing}} translations missing"
+              }
+          ]
+      },
+      {
+          "key": "No records found",
+          "default": "No records found",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "No records found"
+              }
+          ]
+      },
+      {
+          "key": "field digits only",
+          "default": "{{field}} must only contain numerical digits.",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "{{field}} must only contain numerical digits."
+              }
+          ]
+      },
+      {
+          "key": "Phone number not valid",
+          "default": "Not a valid phone number.",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Not a valid phone number."
+              }
+          ]
+      },
+      {
+          "key": "Invalid contact numbers",
+          "default": "These recipients do not have a valid contact number: {{recipients}}",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "These recipients do not have a valid contact number: {{recipients}}"
+              }
+          ]
+      },
+      {
+          "key": "Everyone at",
+          "default": "Everyone at {{facility}}",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Everyone at {{facility}}"
+              }
+          ]
+      },
+      {
+          "key": "count of max characters",
+          "default": "{{count}}/{{max}} characters",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "{{count}}/{{max}} characters"
+              }
+          ]
+      },
+      {
+          "key": "to recipient",
+          "default": "to {{recipient}}",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "to {{recipient}}"
+              }
+          ]
+      },
+      {
+          "key": "Message UUID",
+          "default": "Message UUID",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Message UUID"
+              }
+          ]
+      },
+      {
+          "key": "Sent By",
+          "default": "Sent By",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Sent By"
+              }
+          ]
+      },
+      {
+          "key": "To Phone",
+          "default": "To Phone",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "To Phone"
+              }
+          ]
+      },
+      {
+          "key": "Message Body",
+          "default": "Message Body",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Message Body"
+              }
+          ]
+      },
+      {
+          "key": "form",
+          "default": "Form",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Form"
+              }
+          ]
+      },
+      {
+          "key": "Task Message",
+          "default": "Task Message",
+          "translations": [
+              {
+                  "locale": "en",
+                  "content": "Task Message"
               }
           ]
       }
